@@ -58,9 +58,19 @@
             android:id="@+id/botaoExercicioAula6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="Exercício Aula 6"
             android:textAllCaps="false"
+        />
+
+        <Button
+            android:id="@+id/botaoExercicioAula7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exercício Aula 7"
+            android:textAllCaps="false"
+            android:onClick="exercicio_7"
         />
 
     </TableRow>

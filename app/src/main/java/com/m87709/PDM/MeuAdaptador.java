@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,20 +16,23 @@ class MeuAdaptador extends SimpleAdapter {
     }
 
     @Override
-    public int getCount() {
-        return super.getCount();
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = super.getView(position, convertView, parent);
 
-        if(position <= 3) {
-
+        if (position <= 5) {
             view.setBackgroundColor(Color.YELLOW);
+        } else if (position >= 16) {
+            view.setBackgroundColor(Color.RED);
+        } else {
+            if(position %2 == 0) {
+                view.setBackgroundColor(Color.GRAY);
+            } else {
+                view.setBackgroundColor(Color.WHITE);
+            }
         }
 
         return view;
     }
+
 }

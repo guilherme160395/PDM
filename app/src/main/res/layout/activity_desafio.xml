@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityDesafio"
+    android:orientation="vertical">
+
+    <!-- Matrícula -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="18dp"
+            android:text="Matrícula: "
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/matriculaAluno"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Nome -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="18dp"
+            android:text="Nome: "
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/nomeAluno"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <!-- E-mail -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="18dp"
+            android:text="E-mail: "
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Estado -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="18dp"
+            android:text="Estado: "/>
+
+        <Spinner
+            android:id="@+id/spnEstados"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+    <!-- Cidade -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="18dp"
+            android:text="Cidade: "/>
+
+        <Spinner
+            android:id="@+id/spnCidades"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="25dp"
+            android:text="Foto"/>
+        
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capturar"
+                android:textAllCaps="false"
+                android:onClick="tirarFoto"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adicionar"
+                android:textAllCaps="false"
+                android:onClick="inserirItem"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+    </ListView>
+
+</LinearLayout>

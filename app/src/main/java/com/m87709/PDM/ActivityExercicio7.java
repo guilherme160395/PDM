@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleAdapter;
@@ -19,6 +20,7 @@ public class ActivityExercicio7 extends ListActivity implements AdapterView.OnIt
     String[] de = {"escudoTime", "nomeTime", "pontuacaoTime"};
     int[] para = {R.id.escudoTime, R.id.nomeTime, R.id.pontosTime};
     List<HashMap<String, Object>> dados = new ArrayList<>();
+    String tag = "LOG GUILHERME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,14 @@ public class ActivityExercicio7 extends ListActivity implements AdapterView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+        HashMap<String, Object> item = dados.get(position);
+        String nome = (String) item.get("nomeTime");
+        //Log.d(tag, nome);
+        String pontos = String.valueOf(item.get("pontuacaoTime"));
+        //Log.d(tag, pontos);
+        Toast.makeText(getApplicationContext(),
+                    "Nome do time: " + nome + " Pontos: " + pontos,
+                             Toast.LENGTH_SHORT).show();
     }
 
     private List<HashMap<String, Object>> dadosBrasileirinho() {

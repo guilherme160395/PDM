@@ -41,4 +41,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), ActivityDesafio.class);
         startActivity(intent);
     }
+
+    public void exercicio_10(View view) {
+        Intent intent = new Intent(getApplicationContext(), ActivityExercicio10.class);
+        startActivity(intent);
+    }
 }

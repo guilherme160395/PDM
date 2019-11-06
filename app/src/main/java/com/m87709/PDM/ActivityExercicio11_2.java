@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ActivityExercicio11_2 extends AppCompatActivity {
 
@@ -34,5 +35,10 @@ public class ActivityExercicio11_2 extends AppCompatActivity {
         values.put("valor", Double.parseDouble(valor.getText().toString()));
 
         long resultado = db.insert("carro", null, values);
+        if(resultado != -1) {
+            Toast.makeText(getApplicationContext(), "Registro Salvo com Sucesso", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Fracasso ao Salvar", Toast.LENGTH_SHORT).show();
+        }
     }
 }

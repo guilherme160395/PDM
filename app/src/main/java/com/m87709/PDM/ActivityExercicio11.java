@@ -3,12 +3,17 @@ package com.m87709.PDM;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +35,17 @@ public class ActivityExercicio11 extends AppCompatActivity {
         lista = (ListView) findViewById(R.id.lista_carros);
         helper = new DatabaseHelper(getApplicationContext());
 
+        lista.setClickable(true);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View arg1, int position, long arg3) {
+                String id = String.valueOf(carros.get(position).get("id"));
+                Intent intent = new Intent(getApplicationContext(), ActivityExercicio11_3.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void retrieve(View view) {
@@ -46,6 +62,30 @@ public class ActivityExercicio11 extends AppCompatActivity {
     }
 
     private List<Map<String, Object>> listarCarros(String query) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query,null);
+
+        carros = new ArrayList<Map<String,Object>>();
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    Map<String, Object> item = new HashMap<String, Object>();
+                    int id = cursor.getInt(cursor.getColumnIndex("id"));
+                    String modelo = cursor.getString(cursor.getColumnIndex("modelo"));
+                    String ano = cursor.getString(cursor.getColumnIndex("ano"));
+                    double valor = cursor.getDouble(cursor.getColumnIndex("valor"));
+                    item.put("id", id);
+                    item.put("modelo", modelo);
+                    item.put("ano", ano);
+                    item.put("valor", String.format("R$ %.2f", valor));
+                    carros.add(item);
+                    cursor.moveToNext();
+                } while (cursor.moveToNext());
+            }
+        }
+        cursor.close();
+        return carros;
     }
 
     public void create(View view) {

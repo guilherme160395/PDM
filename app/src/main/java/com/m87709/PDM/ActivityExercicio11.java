@@ -67,23 +67,24 @@ public class ActivityExercicio11 extends AppCompatActivity {
 
         carros = new ArrayList<Map<String,Object>>();
 
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    Map<String, Object> item = new HashMap<String, Object>();
-                    int id = cursor.getInt(cursor.getColumnIndex("id"));
-                    String modelo = cursor.getString(cursor.getColumnIndex("modelo"));
-                    String ano = cursor.getString(cursor.getColumnIndex("ano"));
-                    double valor = cursor.getDouble(cursor.getColumnIndex("valor"));
-                    item.put("id", id);
-                    item.put("modelo", modelo);
-                    item.put("ano", ano);
-                    item.put("valor", String.format("R$ %.2f", valor));
-                    carros.add(item);
-                    cursor.moveToNext();
-                } while (cursor.moveToNext());
-            }
-        }
+        cursor.moveToFirst();
+
+        do {
+            Map<String, Object> item = new HashMap<String, Object>();
+
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String modelo = cursor.getString(cursor.getColumnIndex("modelo"));
+            String ano = cursor.getString(cursor.getColumnIndex("ano"));
+            double valor = cursor.getDouble(cursor.getColumnIndex("valor"));
+
+            item.put("id", id);
+            item.put("modelo", modelo);
+            item.put("ano", ano);
+            item.put("valor", String.format("R$ %.2f", valor));
+
+            carros.add(item);
+        } while (cursor.moveToNext());
+
         cursor.close();
         return carros;
     }

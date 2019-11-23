@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".ActivityExercicio3_3">
+
+    <TableRow>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/onibus"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+        />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/aviao"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+        />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bairros"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/turismo"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+        />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/telefone"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+        />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/taxi"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+        />
+
+    </TableRow>
+
+    <TableRow>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/cultura"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/feriados"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sac"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            />
+
+    </TableRow>
+
+</TableLayout>

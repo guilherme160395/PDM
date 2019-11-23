@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityExercicio11_3"></activity>
+        <activity android:name=".ActivityExercicio3_5"></activity>
+        <activity android:name=".ActivityExercicio3_4" />
+        <activity android:name=".ActivityExercicio3_3" />
+        <activity android:name=".ActivityExercicio3_2" />
+        <activity android:name=".ActivityExercicio3" />
+        <activity android:name=".ActivityExercicio11_3" />
         <activity android:name=".ActivityExercicio11_2" />
         <activity android:name=".ActivityExercicio11" />
         <activity android:name=".ActivityExercicio10" />

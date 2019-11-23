@@ -1,116 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".MainActivity">
 
-    <TableRow>
+    <Button
+        android:id="@+id/botaoExercicioAula1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exercício Aula 1"
+        android:textAllCaps="false"
+        android:onClick="exercicio_1"
+    />
 
-        <Button
-            android:id="@+id/botaoExercicioAula1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 1"
-            android:textAllCaps="false"
-            android:onClick="exercicio_1"
-       />
+    <Button
+        android:id="@+id/botaoExercicioAula2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 2"
+        android:textAllCaps="false"
+        android:onClick="exercicio_2"
+    />
 
-        <Button
-            android:id="@+id/botaoExercicioAula2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 2"
-            android:textAllCaps="false"
-            android:onClick="exercicio_2"
-        />
+    <Button
+        android:id="@+id/botaoExercicioAula3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 3"
+        android:textAllCaps="false"
+        android:onClick="exercicio_3"
+    />
 
-    </TableRow>
+    <Button
+        android:id="@+id/botaoExercicioAula4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 4"
+        android:textAllCaps="false"
+    />
 
-    <TableRow>
+    <Button
+        android:id="@+id/botaoExercicioAula6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 6"
+        android:textAllCaps="false"
+    />
 
-        <Button
-            android:id="@+id/botaoExercicioAula3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 3"
-            android:textAllCaps="false"
-        />
+    <Button
+        android:id="@+id/botaoExercicioAula7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 7"
+        android:textAllCaps="false"
+        android:onClick="exercicio_7"
+    />
 
-        <Button
-            android:id="@+id/botaoExercicioAula4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 4"
-            android:textAllCaps="false"
-        />
+    <Button
+        android:id="@+id/botaoDesafio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Desafio (Aula 08/10/2019)"
+        android:onClick="desafio"
+        android:textAllCaps="false"
+    />
 
-    </TableRow>
+    <Button
+        android:id="@+id/botaoExercicioAula10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Aula 10"
+        android:onClick="exercicio_10"
+        android:textAllCaps="false"
+    />
 
-    <TableRow>
+    <Button
+        android:id="@+id/botaoExercicioAula11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Aula 11"
+        android:onClick="exercicio_11"
+        android:textAllCaps="false"
+    />
 
-        <Button
-            android:id="@+id/botaoExercicioAula6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 6"
-            android:textAllCaps="false"
-        />
-
-        <Button
-            android:id="@+id/botaoExercicioAula7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercício Aula 7"
-            android:textAllCaps="false"
-            android:onClick="exercicio_7"
-        />
-
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/botaoDesafio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Desafio (Aula 08/10/2019)"
-            android:onClick="desafio"
-            android:textAllCaps="false"
-            />
-
-        <Button
-            android:id="@+id/botaoExercicioAula10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Aula 10"
-            android:onClick="exercicio_10"
-            android:textAllCaps="false"
-            />
-
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/botaoExercicioAula11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Aula 11"
-            android:onClick="exercicio_11"
-            android:textAllCaps="false"
-            />
-
-    </TableRow>
-
-</TableLayout>
+</LinearLayout>

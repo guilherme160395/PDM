@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Aula 10"
+            android:text="Exercício Aula 10"
             android:onClick="exercicio_10"
             android:textAllCaps="false"
             />
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Aula 11"
+            android:text="Exercício Aula 11"
             android:onClick="exercicio_11"
             android:textAllCaps="false"
             />

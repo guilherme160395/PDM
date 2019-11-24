@@ -86,6 +86,17 @@
     />
 
     <Button
+        android:id="@+id/botaoExercicioAula9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Exercício Aula 9"
+        android:onClick="exercicio_9"
+        android:textAllCaps="false"
+        />
+
+
+    <Button
         android:id="@+id/botaoExercicioAula10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -62,6 +62,7 @@
         android:layout_marginTop="10dp"
         android:text="Exercício Aula 6"
         android:textAllCaps="false"
+        android:onClick="exercicio_6"
     />
 
     <Button

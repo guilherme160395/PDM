@@ -5,79 +5,130 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ActivityDesafio extends AppCompatActivity {
 
+    String tag = "Log Guilherme";
+    private ListView lv;
+    List<HashMap<String, Object>> lista;
+    AdaptadorDesafio adapter_desafio;
+
+    String[] de = {"foto", "matricula", "nome"};
+    int[] para = {R.id.foto, R.id.matricula_lista, R.id.nome_lista};
+
     private String[] estados = {"Rio Grande do Sul", "Santa Catarina", "Paraná"};
+    private String[] cidades;
 
-    private String[] cidades = {"Santa Cruz do Sul", "Porto Alegre", "Erechim", "Florianópolis", "Balneário Camboriú", "Joinville", "Curitiba", "Foz do Iguaçu", "Londrina"};
+    private TextView textMatriclula;
+    private TextView textNome;
+    private TextView textEmail;
+    private Spinner est;
+    private Spinner cid;
 
-    String[] de = {"foto","matricula", "nome"};
+    private String estadoSelecionado;
+    private String cidadeSelecionada;
 
-    int[] para = {R.id.foto, R.id.matricula, R.id.nome};
 
-    List<HashMap<String, Object>> dados = new ArrayList<>();
-
-    HashMap<String, Object> itens = new HashMap<String, Object>();
-
-    AdaptadorDesafio adapter_desafio = new AdaptadorDesafio(getApplicationContext(), dados, R.layout.linha_desafio, de, para);
+    HashMap<String, Object> item;
 
     Bitmap bm;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desafio);
 
-        Spinner est = (Spinner) findViewById(R.id.spnEstados);
-        ArrayAdapter<String> adapter_est = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, estados);
+        textMatriclula = findViewById(R.id.matriculaAluno);
+        textNome = findViewById(R.id.nomeAluno);
+        textEmail = findViewById(R.id.emailAluno);
+        est = (Spinner) findViewById(R.id.spnEstados);
+        cid = (Spinner) findViewById(R.id.spnCidades);
+
+        //codigo list view
+        lv = findViewById(R.id.list_view);
+        lista = new ArrayList<>();
+        //adapter_desafio = new AdaptadorDesafio(getApplicationContext(), lista, R.layout.linha_desafio, de, para);
+        //lv.setAdapter(adapter_desafio);
+
+        //codigo spinner estados
+        ArrayAdapter<String> adapter_est = new ArrayAdapter<>(ActivityDesafio.this, android.R.layout.simple_list_item_1, estados);
         est.setAdapter(adapter_est);
 
-        Spinner cid = (Spinner) findViewById(R.id.spnCidades);
-        ArrayAdapter<String> adapter_cid = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cidades);
-        cid.setAdapter(adapter_cid);
+        //codigo spinner cidades
+        est.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                estadoSelecionado = estados[position];
+                if (estadoSelecionado == "Rio Grande do Sul") {
+                    cidades = new String[]{"Santa Cruz do Sul", "Porto Alegre", "Erechim"};
+                    ArrayAdapter<String> adapter_cid = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, cidades);
+                    cid.setAdapter(adapter_cid);
+                } else if (estadoSelecionado == "Santa Catarina") {
+                    cidades = new String[]{"Florianópolis", "Balneário Camboriú", "Joinville"};
+                    ArrayAdapter<String> adapter_cid = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, cidades);
+                    cid.setAdapter(adapter_cid);
+                } else if (estadoSelecionado == "Paraná") {
+                    cidades = new String[]{"Curitiba", "Foz do Iguaçu", "Londrina"};
+                    ArrayAdapter<String> adapter_cid = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, cidades);
+                    cid.setAdapter(adapter_cid);
+                }
+            }
 
-        AdaptadorDesafio adapter_desafio = new AdaptadorDesafio(getApplicationContext(), (List<HashMap<String, Object>>) itens, R.layout.linha_desafio, de, para);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //...
+            }
+        });
 
-    }
+        cid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                cidadeSelecionada = cidades[position];
+            }
 
-    private List<HashMap<String, Object>> recuperarDados() {
-        /*int[] img = {R.drawable.inter, R.drawable.sao, R.drawable.pal, R.drawable.fla, R.drawable.gre, R.drawable.cam, R.drawable.cru, R.drawable.san, R.drawable.flu, R.drawable.cor, R.drawable.ame, R.drawable.vit, R.drawable.bah, R.drawable.cap, R.drawable.bot, R.drawable.vas, R.drawable.spt, R.drawable.cea, R.drawable.cha, R.drawable.par};
-        String[] clubes = {"Internacional","São Paulo","Palmeiras","Flamengo","Grêmio","Atlético-MG","Cruzeiro","Santos","Fluminense","Corinthians","América-MG","Vitória","Bahia","Atlético-PR","Botafogo","Vasco","Sport","Ceará","Chapecoense","Paraná Clube"};
-        int[] pontos = {49,49,46,44,41,38,33,31,31,30,30,29,28,27,26,24, 24,24,22,16};
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //...
+            }
+        });
 
-        //List<HashMap<String, Object>> dados = new ArrayList<>();
-        HashMap<String, Object> itens;
-        for(int i = 0; i < img.length; i++) {
-            itens = new HashMap<String, Object>();
-
-            itens.put("escudoTime", img[i]);
-            itens.put("nomeTime", clubes[i]);
-            itens.put("pontuacaoTime", pontos[i]);
-            dados.add(itens);
-
-        }
-
-        return dados;*/
-        HashMap<String, Object> itens = new HashMap<String, Object>();
-
-        itens.put("foto", bm);
-        itens.put("matricula", findViewById(R.id.matriculaAluno));
-        itens.put("nome", findViewById(R.id.nomeAluno));
-        dados.add(itens);
-
-        return dados;
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Map<String,Object> item = lista.get(position);
+                String matricula = (String) item.get("matricula");
+                String nome = (String) item.get("nome");
+                String email = (String) item.get("email");
+                String estado = (String) item.get("estado");
+                String cidade = (String) item.get("cidade");
+                Intent intent = new Intent(getApplicationContext(), ActivityDesafio_2.class);
+                intent.putExtra("matricula", matricula);
+                intent.putExtra("nome", nome);
+                intent.putExtra("email", email);
+                intent.putExtra("estado", estado);
+                intent.putExtra("cidade", cidade);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -88,12 +139,12 @@ public class ActivityDesafio extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == 123 && resultCode == RESULT_OK) {
+        if (requestCode == 123 && resultCode == RESULT_OK) {
             super.onActivityResult(requestCode, resultCode, data);
 
             ImageView iv = (ImageView) findViewById(R.id.foto);
 
-            if(requestCode == 123 && resultCode == RESULT_OK) {
+            if (requestCode == 123 && resultCode == RESULT_OK) {
                 bm = (Bitmap) data.getExtras().get("data");
                 iv.setImageBitmap(bm);
                 iv.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -103,10 +154,40 @@ public class ActivityDesafio extends AppCompatActivity {
     }
 
     public void inserirItem(View view) {
-        itens.put("foto", bm);
-        itens.put("matricula", findViewById(R.id.matriculaAluno));
-        itens.put("nome", findViewById(R.id.nomeAluno));
-        dados.add(itens);
+
+        //item = new HashMap<String, Object>();
+        final Map<String,Object> item = new HashMap<>();
+
+        ImageView iv = (ImageView) findViewById(R.id.foto);
+        //recupero o Drawable da ImageView
+        Drawable drawable = iv.getDrawable();
+        //faço o casting de Drawable para BitmapDrawable
+        BitmapDrawable bd = (BitmapDrawable) drawable;
+        //recupero o Bitmap do BitmapDrawable
+        Bitmap bitmap = bd.getBitmap();
+        //adiciono o Bitmap na variável itens
+        item.put("foto", bitmap);
+
+        //EditText textNome = (EditText) findViewById(R.id.nomeAluno);
+        //String n = textNome.getText().toString();
+        item.put("nome", textNome.getText().toString());
+        Log.d(tag,"valor nome: "+ textNome.getText().toString());
+
+        //EditText textMatriclula = (EditText) findViewById(R.id.matriculaAluno);
+        item.put("matricula", textMatriclula.getText().toString());
+        Log.d(tag,"valor matrícula: "+ textMatriclula.getText().toString());
+
+        item.put("email", textEmail.getText().toString());
+        Log.d(tag,"valor email: "+ textEmail.getText().toString());
+
+        item.put("estado", estadoSelecionado);
+        item.put("cidade", cidadeSelecionada);
+
+        lista.add((HashMap<String, Object>) item);
+
+        adapter_desafio = new AdaptadorDesafio(getApplicationContext(), lista, R.layout.linha_desafio, de, para);
+        lv.setAdapter(adapter_desafio);
+
     }
 
 }

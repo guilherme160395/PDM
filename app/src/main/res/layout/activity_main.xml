@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Desafio (Aula 08/10/2019)"
+        android:text="Exercício Aula 8"
         android:onClick="desafio"
         android:textAllCaps="false"
     />
